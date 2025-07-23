@@ -43,13 +43,14 @@ device-api/
 
 Start the app and database with:
 ```bash
-./mvnw clean package
+./mvnw clean package or
+mvnw.cmd clean package
 ```
 ```bash
 docker-compose up --build
 ```
 
-Access Swagger UI at: [http://localhost:8080/swagger-ui.html]
+Access Swagger UI at: [http://localhost:8080/swagger-ui/index.html]
 
 🚧 Future Improvements
 Add pagination and filtering support to the GET /api/devices endpoint.
