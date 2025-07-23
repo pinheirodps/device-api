@@ -29,6 +29,9 @@ import java.util.List;
 
 /**
  * REST controller for managing devices.
+ *
+ * Exposes endpoints to create, retrieve, update, and delete devices.
+ * Validates input data and enforces domain rules via the service layer.
  */
 @RestController
 @RequestMapping("/api/v1/devices")
@@ -38,6 +41,12 @@ public class DeviceController {
 
     private DeviceService deviceService;
 
+    /**
+     * Create device response dto.
+     *
+     * @param dto the dto
+     * @return the device response dto
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
@@ -53,6 +62,13 @@ public class DeviceController {
         return deviceService.create(dto);
     }
 
+    /**
+     * Update device response dto.
+     *
+     * @param id  the id
+     * @param dto the dto
+     * @return the device response dto
+     */
     @PutMapping("/{id}")
     @Operation(
             summary = "Fully update a device",
@@ -73,6 +89,13 @@ public class DeviceController {
         return deviceService.update(id, dto);
     }
 
+    /**
+     * Partial update device response dto.
+     *
+     * @param id  the id
+     * @param dto the dto
+     * @return the device response dto
+     */
     @Operation(
             summary = "Partially update a device",
             description = """
@@ -97,6 +120,12 @@ public class DeviceController {
         return deviceService.partialUpdate(id, dto);
     }
 
+    /**
+     * Gets by id.
+     *
+     * @param id the id
+     * @return the by id
+     */
     @GetMapping("/{id}")
     @Operation(
             summary = "Get a device by ID",
@@ -113,6 +142,11 @@ public class DeviceController {
         return deviceService.findById(id);
     }
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     @GetMapping
     @Operation(
             summary = "List all devices",
@@ -126,6 +160,12 @@ public class DeviceController {
         return deviceService.findAll();
     }
 
+    /**
+     * Gets by brand.
+     *
+     * @param brand the brand
+     * @return the by brand
+     */
     @GetMapping("/brand/{brand}")
     @Operation(
             summary = "Get devices by brand",
@@ -141,6 +181,12 @@ public class DeviceController {
         return deviceService.findByBrand(brand);
     }
 
+    /**
+     * Gets by state.
+     *
+     * @param state the state
+     * @return the by state
+     */
     @GetMapping("/state/{state}")
     @Operation(
             summary = "Get devices by state",
@@ -156,6 +202,11 @@ public class DeviceController {
         return deviceService.findByState(state);
     }
 
+    /**
+     * Delete.
+     *
+     * @param id the id
+     */
     @Operation(
             summary = "Delete a device",
             description = """

@@ -16,6 +16,9 @@ import org.zalando.problem.spring.web.advice.ProblemHandling;
 
 import java.net.URI;
 
+/**
+ * The type Exception handling.
+ */
 @ControllerAdvice()
 @Slf4j
 public class ExceptionHandling implements ProblemHandling {
@@ -40,7 +43,7 @@ public class ExceptionHandling implements ProblemHandling {
 
     @Override
     public URI defaultConstraintViolationType() {
-        return URI.create("urn:device-service:problem-type:validation_constraint");
+        return URI.create("urn:device-api:problem-type:validation_constraint");
     }
 
     @Override
@@ -48,6 +51,13 @@ public class ExceptionHandling implements ProblemHandling {
         return true;
     }
 
+    /**
+     * Handle no resource found exception response entity.
+     *
+     * @param exception the exception
+     * @param request   the request
+     * @return the response entity
+     */
     @ExceptionHandler(NoResourceFoundException.class)
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public ResponseEntity<Problem> handleNoResourceFoundException(final NoResourceFoundException exception, final NativeWebRequest request) {

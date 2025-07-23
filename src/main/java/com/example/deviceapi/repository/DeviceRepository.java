@@ -11,6 +11,19 @@ import java.util.List;
  * Repository interface for Device entity.
  */
 public interface DeviceRepository extends JpaRepository<Device, Long> {
+    /**
+     * Find by brand list.
+     *
+     * @param brand the brand
+     * @return the list
+     */
     List<Device> findByBrand(String brand);
+
+    /**
+     * Find by state list.
+     *
+     * @param state the state
+     * @return the list
+     */
     List<Device> findByState(DeviceState state);
 }

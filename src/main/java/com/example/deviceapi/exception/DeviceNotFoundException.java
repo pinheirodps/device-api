@@ -11,7 +11,7 @@ import java.net.URI;
 public class DeviceNotFoundException extends AbstractCustomThrowableProblem {
 
 
-    private static final URI TYPE = URI.create("urn:device-service:problem-type:invalid_username");
+    private static final URI TYPE = URI.create("urn:device-api:problem-type:invalid_username");
 
     /**
      * Creates new instance of {@code DeviceNotFoundException}.
