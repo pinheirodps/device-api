@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/device_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      indent_output: true
+server:
+  port: 8080
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v1/api-docs
+    version: openapi_3_0
+  swagger-ui:
+    path: /swagger-ui
