@@ -51,3 +51,11 @@ docker-compose up --build
 
 Access Swagger UI at: [http://localhost:8080/swagger-ui.html]
 
+🚧 Future Improvements
+Add pagination and filtering support to the GET /api/devices endpoint.
+
+Improve validation messages with localized responses.
+
+Implement role-based access control (RBAC) using Spring Security.
+
+Add caching for read-heavy endpoints (e.g., GET by brand/state).
